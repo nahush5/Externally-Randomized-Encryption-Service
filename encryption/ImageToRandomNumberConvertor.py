@@ -80,7 +80,7 @@ class ImageToRandomNumberConvertor:
         new_imgs = np.array(new_imgs)
         return new_imgs
 
-    def randomSequenceGeneratorFromImage(self, imageFile, N, W):
+    def get_avg_colours_img(self, imageFile, N, W):
         if( N < W ): return 0
         img = cv2.imread(imageFile)
         img = cv2.resize(img, (N, N)) # step 1
