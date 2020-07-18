@@ -7,7 +7,7 @@ step2 was done by splitting each row of the resultant N*N*3 matrix into parts of
 (N/W) * (N/W) * (W * W) * 3 matrices
 step3 was done by finding the RBG channel averages for each entry (each of ((W*W) * 3) matrices) in the resultant matrix using python broadcasting. 
 
-The public member of the below class namely, randomSequenceGeneratorFromImage(imageFile, N, W) takes three arguments 
+The public member of the below class namely, get_avg_colours_img(imageFile, N, W) takes three arguments 
 imageFile: filepath
 N: resizing parameter
 W: spliting parameter
