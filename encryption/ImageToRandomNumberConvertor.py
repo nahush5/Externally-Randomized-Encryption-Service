@@ -3,9 +3,9 @@ import cv2
 
 '''
 step1 was done using the resize function of opencv
-step2 was done by splitting each row of the resultant N*N*3 matrix into parts of lenght W*3 each and then were stacked on top of the other to obtain a 
-(N/W) * (N/W) * (W * W) * 3 matrices
-step3 was done by finding the RBG channel averages for each entry (each of ((W*W) * 3) matrices) in the resultant matrix using python broadcasting. 
+step2 was done by splitting each row of the resultant N X N X 3 matrix into parts of lenght W X 3 each and then were stacked on top of the other to obtain a 
+(N/W) X (N/W) X (W * W) X 3 matrices
+step3 was done by finding the RBG channel averages for each entry (each of ((W*W) X 3) matrices) in the resultant matrix using python broadcasting. 
 
 The public member of the below class namely, get_avg_colours_img(imageFile, N, W) takes three arguments 
 imageFile: filepath
@@ -13,8 +13,8 @@ N: resizing parameter
 W: spliting parameter
 It is always expected that N >= W
 
-This function returns final answer as a list of averages of the channel values for each of the(W*W) * 3) matrices
-The resultant answer will be of form (N/W) * (N/W) * 3
+This function returns final answer as a list of averages of the channel values for each of the (W*W) X 3 matrices
+The resultant answer will be of form ((N/W) * (N/W)) X 3
 '''
 
 class ImageToRandomNumberConvertor:
@@ -33,6 +33,8 @@ class ImageToRandomNumberConvertor:
             for img in entry:
                 av = self.__sum(img) / (W * W)
                 averages.append(av)
+
+        averages = np.array(averages)
 
         return averages
 
