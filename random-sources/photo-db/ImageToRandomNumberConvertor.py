@@ -123,7 +123,6 @@ class ImageToRandomNumberConvertor:
         counter = 0
         
         for i in sorted(os.listdir(path),key=self.__key):
-            # print(i)
             imgFile = path + '\\' + i
             buf = self.__get_avg_colours_img(imgFile, N, W)
             x.append(buf)
@@ -138,9 +137,7 @@ class ImageToRandomNumberConvertor:
         getArraysForConversion = []
         
         for i in x:
-            # print(len(i))
             n = random.randint(0, len(i) - 1)
-            # print(n)
             getArraysForConversion.append(i[n])
         
         getArraysForConversion = np.array(getArraysForConversion)
@@ -163,7 +160,6 @@ class ImageToRandomNumberConvertor:
     def get_binary_stream(self, path, N, W, threshold, numOfImages):
         x = self.__get_list_of_arrays_from_images(path, N, W, numOfImages)
         getArraysForConversion = self.__get_arrays_randomly(x)
-        # print(getArraysForConversion)
         final = self.__convert_to_binary(getArraysForConversion, threshold)
 
         return final
